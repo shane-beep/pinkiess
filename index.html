@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Vibes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .color-option {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            color: #fff;
+            border-radius: 8px;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choose Your Color Vibe</h1>
+    <div>
+        <!-- Color Options -->
+        <div class="color-option" id="blush-pink" style="background-color: #ffc1cc;" onclick="showMessage('blush')"></div>
+        <div class="color-option" id="hot-pink" style="background-color: #ff69b4;" onclick="showMessage('hot')"></div>
+        <div class="color-option" id="pastel-pink" style="background-color: #ffd1dc;" onclick="showMessage('pastel')"></div>
+        <div class="color-option" id="dusty-rose" style="background-color: #d3a2a3;" onclick="showMessage('dusty')"></div>
+        <div class="color-option" id="magenta-pink" style="background-color: #ff0090;" onclick="showMessage('magenta')"></div>
+        <div class="color-option" id="neon-pink" style="background-color: #ff00ff;" onclick="showMessage('neon')"></div>
+    </div>
+
+    <!-- Messages -->
+    <div id="message-box" class="message"></div>
+
+    <script>
+        // Function to display the appropriate message
+        function showMessage(color) {
+            const messages = {
+                blush: "soft & gentle: you bring peace to the space around you.",
+                hot: "bold & confident: you command attention effortlessly.",
+                pastel: "dreamy & playful: you add magic to every interaction.",
+                dusty: "mature & elegant: you carry yourself with timeless grace.",
+                magenta: "bold & creative: you think outside the box.",
+                neon: "exciting & adventurous: you're always ready for the next thrill."
+            };
+
+            // Get the message box element
+            const messageBox = document.getElementById("message-box");
+
+            // Update and display the message
+            messageBox.innerText = messages[color];
+            messageBox.style.display = "block";
+            messageBox.style.backgroundColor = document.getElementById(`${color}-pink`).style.backgroundColor;
+        }
+    </script>
+</body>
+</html>
